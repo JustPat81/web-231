@@ -1,0 +1,43 @@
+<!--
+! ============================================================
+! Title: wolff-exercise2.html
+! Author: Professor Krasso
+! Date: 20 March 2022
+! Modified By: Patrick Wolff
+! Description: Patrick Wolff's Exercise 2.2 - Hello JavaScript
+! ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <link href="global.css" type="text/css" rel="stylesheet" />
+    <link href="site.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <h1>Exercise 2.2 - Hello JavaScript</h1>
+
+        <button type="button" id = "btnMyCourse" onclick="myAlert()">What course am I taking?</button>  
+         <p id = "txtMyWorld"></p>
+         <a href="https://justpat81.github.io/web-231/" class="return-home">Return</a>
+
+         <script>
+            //This executes when the button is clicked.
+            function myAlert() {
+               alert("WEB 231 – Enterprise JavaScript I.");
+            }
+            //Executes on page load - this will alter the html of txtMyWorld.
+            window.addEventListener('load', (event) => {
+               document.getElementById("txtMyWorld").innerHTML = "You are now in Wolff's world!";               
+                   });
+         </script>
+
+    </div>
+</body>
