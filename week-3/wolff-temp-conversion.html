@@ -1,0 +1,73 @@
+<!--
+   !===============================================================
+   ! Title: Assignment 23.2 - Values and Variables
+   ! Author: Professor Krasso
+   ! Date: 27 March 2022
+   ! Modified by: Patrick Wolff
+   ! Description: Assignment 3.2 Temperature conversion app
+   !==============================================================
+   -->
+<!DOCTYPE html>
+<html lang="en">
+      
+    <head>
+         <meta charset="UTF-8">
+         <title>WEB 231 - Enterprise JavaScript I</title>
+         <link rel="stylesheet" href="wolff-temp-conversion.css" type="text/css">
+         <link rel="stylesheet" href="../global.css" type="text/css">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+         <title>WEB 231 – Enterprise JavaScript I</title>
+    </head>
+
+   <body>
+
+    <div id="container">
+        <h1 class="app-header">Welcome to the Temperature Conversion App!</h1>
+
+        <!-- Card for user input of fahrenheit value -->
+            <div class="card">
+                <div class="card-title">Fahrenheit to Celsius Converter</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label for="txtFahrenheit">Fahrenheit value:</label>
+                            <input type="text" class="input" id="txtFahrenheit" name="fahrenheit" />
+                        </div>
+
+                        <!-- Button to convert temperature -->
+                        <div class="form-field">
+                            <button id="convertTemp" class="btn btn-primary full-width" onclick="convertTemp()">Convert Temperature</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Display results from conversion -->
+    <div id="conversion-results">
+        <div class="card">
+            <div class="card-title">Conversion Results</div>
+            <div class="card-content" id="results"></div>
+        </div>
+    </div>
+
+    <!-- link back to index -->
+    <a href="https://justpat81.github.io/web-231/index" class="return-home">Return</a> 
+
+    <script>
+        //A function to convert a temperature from user input.
+        function convertTemp() {
+        
+        //Capture the value from txtFahrenheit and assign it to variable fahrenheit.
+        let fahrenheit = document.getElementById("txtFahrenheit").value;
+        //Set celsius temp to a fixed position of 2 decimals
+        let Celsius = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2);
+        
+        //Displaying result to the conversion-results div.
+        document.getElementById('results').innerHTML = Celsius;
+    }
+         </script>      
+      </body>
+   
+   </html>

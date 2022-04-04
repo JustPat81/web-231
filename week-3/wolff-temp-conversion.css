@@ -1,0 +1,19 @@
+/*
+*Title: wolff-temp-conversion.css
+*Author: Professor Krasso
+*Date: 3 April 2022
+*Description: CSS Styling for the temperature conversion app.
+*/
+
+/* Styling for the app header */
+.app-header {
+	text-align: center;
+}
+
+/* Styling for the results card. */
+#conversion-results {
+	font-size: 28px;
+	text-align: center;
+	width: 600px;
+	margin: 3% auto 0;
+}

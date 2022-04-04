@@ -1,4 +1,4 @@
-/**
+/*
 * =========================================================
 * Title: global.css
 * Author: Professor Krasso
@@ -8,9 +8,22 @@
 * =========================================================
 */
 
+body {
+	font-family: 'Oswald', verdana, arial, sans-serif;
+}
+
+#container {
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-right: 100px;
+	padding: 10px;
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+    width: 600px;
+	margin: 3% auto 0;
 }
 
 .card-title {
@@ -60,12 +73,14 @@
 }
 
 .full-width {
-    width: 100%;
+    width: 62%;
 }
 
 .form {
     display: inline-grid;
     grid-template-columns: auto;
+    width: 600px;
+	margin: 3% auto 0;
 }
 
 .form-field {
@@ -84,4 +99,8 @@
 
 .return-home:visited {
     color: #3c275a;
+}
+
+h1 {
+	font-weight: 400;
 }
