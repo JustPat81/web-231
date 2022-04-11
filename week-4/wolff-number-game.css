@@ -1,0 +1,19 @@
+/*
+ * Title: wolff-number-game.css
+ * Author: Patrick Wolff
+ * Date: 10 April 2022
+ * Description: CSS Styling for the number game assignment.
+*/
+/* Styling for the app header */
+.app-header {
+	text-align: center;
+}
+
+
+/* Styling for the results card */
+#number-results {
+	font-size: 28px;
+	text-align: center;
+	width: 600px;
+	margin: 3% auto 0;
+}

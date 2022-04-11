@@ -1,0 +1,72 @@
+<!--
+! =====================================================
+! Title: wolff-number-game.html
+! Author: Professor Krasso
+! Date: 10 April 2022
+! Modified By: Patrick Wolff
+! Description: Number guessing game, pick a number 
+! between 1-10
+! =====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+    <link href="wolff-number-game.css" type="text/css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="app-header">Welcome to the numbers game!</h1>
+        <div class="card">
+            <div class="card-title">Pick a number between 1 and 10</div>
+                <div class="card-content">
+                    <div class="form">
+                        <div class="form-field">
+                            <label>Guess the number:</label>
+                            <input type="text" class="input" id="txtMyNumber" name="myNumber">
+                            <br>
+                        </div>
+                        <div class="form-field">
+                        <button id="btnSubmit" class="btn btn-primary full-width" onclick="myFunction()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+        <div id="results-container">
+            <div class="card">
+                <div class="card-title">Results</div>
+                <div class="app-header" id="results"></div>
+            </div> 
+            <br>
+            <a href="https://justpat.github.io/web-231/" class="return-home">Return</a> 
+        </div>
+
+        <script>
+        //Generate a random number between 1 and 10 and assign it to a variable named rnd.
+        const rnd = Math.floor((Math.random() * 10) + 1);
+    
+        function myFunction() {
+            //Assigning the value of txtMyNumber to myNumber
+            let myNumber = document.getElementById("txtMyNumber").value;
+
+            //Compares myNumber and will check if it is greater than the randomly generated number.
+            //If myNumber is greater than, message will displayed to indicate such. If not, it will
+            //check to see if it is less than random number. If it is, then message will indicate such.
+            //If user inputs number equal to random number, message will indicate a correct guess.
+            if(myNumber > rnd) {
+                document.getElementById('results').innerHTML = "The number is less than " + myNumber;
+            } else if(myNumber < rnd) {
+                document.getElementById('results').innerHTML = "The number is greater than " + myNumber;
+            } else if(myNumber = rnd) {
+                document.getElementById('results').innerHTML = "Congratulations! You picked the correct number!";
+            }
+        }
+        </script>
+
+</body>
