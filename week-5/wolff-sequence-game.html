@@ -1,0 +1,114 @@
+<!--
+! =====================================================
+! Title: wolff-sequence-game.html
+! Author: Professor Krasso
+! Date: 17 April 2022
+! Modified By: Patrick Wolff
+! Description: Select a number sequence and the number
+! results will be displayed.
+! =====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEB 231 - Enterprise JavaScript I</title>
+    <link href="../global.css" type="text/css" rel="stylesheet" />
+    <link href="wolff-sequence-game.css" type="text/css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="container">
+    <h1 class="app-header">Welcome to the sequence game!</h1>
+
+    <div class="card">
+        <div class="card-title">Sequence Selection Form</div>
+                <div class="form">
+                    <div class="form-field">
+                        <label>Choose a number sequence:</label>
+                        <select id="sequence" class="drop-down-menu">
+                            <option value="select">--Select--</option>
+                            <option value="fibonacci">Fibonacci Sequence</option>
+                            <option value="even">Even Numbers</option>
+                            <option value="odd">Odd Numbers</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <button id="btnDisplaySequence" class="btn btn-primary full-width" onclick="displaySequence()">Display Sequence</button>
+                    </div>
+                </div>
+    </div>
+
+            <div id="results-container">
+                <div class="card">
+                   <div class="card-title">Sequence Results</div>
+                   <div class="app-header" id="results"></div>
+                </div>
+                <br>
+                <!-- Link to return back to index.html page. -->
+                <a class="return-home" href="https://justpat81.github.io/web-231/index">Return</a>
+            </div>
+</div>
+
+<script>
+	//Function runs when Display Sequence button is clicked.
+function displaySequence() {
+    //Capture the value from the select list and assign it to variable choice.
+    let choice = document.getElementById('sequence').value;
+    //This runs if the user selects the fibonacci choice from the list.
+    if (choice == "fibonacci") {
+        //fibonacciSequenceText variable to hold results from the first loop.
+        let fibonacciSequenceText = "";
+        //Starting values for the fibonacci loop.
+        let num1 = 0,
+            num2 = 1,
+            next;
+        //Loop prints out numbers in the fibonacci sequence.
+        while (num1 < 40) {
+            fibonacciSequenceText += num1 + ", ";
+            next = num1 + num2;
+            num1 = num2;
+            num2 = next;
+        }
+        //Outputs into results div, last 2 characters sliced.
+        document.getElementById('results').innerHTML = fibonacciSequenceText.slice(0, -2);
+        //This runs if the user selects even numbers from the list.
+    } else if (choice == "even") {
+        //evenNum holds the results of this loop output.
+        let evenNum = "";
+        let next;
+        let num1 = 0;
+        //Loop executes until the test condition evaluates to false.
+        do {
+            evenNum += num1 + ", ";
+            next = num1 + 2;
+            num1 = next;
+        }
+        while (num1 < 20);
+        //Outputs into results div, last 2 characters sliced.
+        document.getElementById("results").innerHTML = evenNum.slice(0, -2);
+        //This runs if the user selects odd numbers from the list.      
+    } else if (choice == "odd") {
+        let num1;
+        //oddNum holds the results of this loop output.        
+        oddNum = "";
+        //This loop initializes num1 to 1, and increments it if less than 20
+        for (let num1 = 1; num1 < 20; num1++) {
+            if ((num1 % 2) !== 0) {
+                oddNum += num1 + ", ";
+            }
+        }
+        //Outputs into results div, last 2 characters sliced.       
+        document.getElementById("results").innerHTML = oddNum.slice(0, -2);
+        //Will run if no selection is made.
+    } else {
+        alert("Invalid selection, please try again!");
+    }
+    }
+	</script>
+</body>
+</html>

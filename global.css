@@ -41,6 +41,11 @@ body {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.app-header {
+	font-size: 28px;
+	text-align: center;
+}
+
 .btn {
     border: none;
     text-align: center;
@@ -103,4 +108,19 @@ body {
 
 h1 {
 	font-weight: 400;
+}
+
+#results-container {
+	width: 600px;
+	margin: 3% auto 0;
+}
+
+
+.drop-down-menu {
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
