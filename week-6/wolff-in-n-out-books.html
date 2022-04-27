@@ -1,0 +1,183 @@
+<!--
+! =====================================================
+! Title: wolff-in-n-out-books.html
+! Author: Professor Krasso
+! Date: 24 April 2022
+! Modified By: Patrick Wolff
+! Description: Choose a selection from a drop-down list
+! to display favorite books or authors.
+! =====================================================
+-->
+
+   <!DOCTYPE html>
+   <html lang='en'>
+      <head>
+        <meta charset="UTF-8">
+        <title>WEB 231 - Enterprise JavaScript I</title>
+        <link href="../global.css" type="text/css" rel="stylesheet" />
+        <link href="wolff-in-n-out-books.css" type="text/css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+      </head>
+      <body>
+         <div id="container">
+            <h1 class="app-header">Welcome to In-N-Out-Books</h1>
+            <div class="card">
+               <div class="card-title">My Favorites</div>
+               <div class="form">
+                  <div class="form-field">
+                     <label>Choose a listing</label>
+                     <!-- Dropdown list with book/author select options. -->
+                     <select id="favoriteList" class="drop-down-menu">
+                        <option value="select">--Select--</option>
+                        <option value="books">Top 3 Favorite Books</option>
+                        <option value="authors">Top 3 Favorite Authors</option>
+                     </select>
+                  </div>
+                  <div class="form-field">
+                     <button id="btnDisplayListing" class="btn btn-primary full-width" onclick="displayListing()">Display Listing</button>
+                  </div>
+               </div>
+                    <!-- Link to return back to landing page. -->
+                    <a class="return-home" href="https://justpat81.github.io/web-231/">Return</a>
+            </div>
+            
+         </div>
+
+         <div id="table-container">
+            <!-- Card that displays the book table. -->
+            <div class="card" id="book-table">
+               <div class="card-title">Top 3 Favorite Books</div>
+               <table id="favorite-books">
+                  <tr>
+                     <th>ISBN</th>
+                     <th>Title</th>
+                     <th>Pages</th>
+                  </tr>
+                  <tr>
+                     <td id=”txtTheStandISBN”></td>
+                     <td id=”txtTheStandTitle”></td>
+                     <td id=”txtTheStandPages”></td>
+                  </tr>
+                  <tr>
+                     <td id=”txtFahrenheit451ISBN”></td>
+                     <td id=”txtFahrenheit451Title”></td>
+                     <td id=”txtFahrenheit451Pages”></td>
+                  </tr>
+                  <tr>
+                     <td id=”txtSlaughterhouseFiveISBN”></td>
+                     <td id=”txtSlaughterhouseFiveTitle”></td>
+                     <td id=”txtSlaughterhouseFivePages”></td>
+                  </tr>
+               </table>
+            </div>
+
+            <!-- Card to display the author table. -->            
+            <div class="card" id="author-table">
+               <div class="card-title">Top 3 Favorite Authors</div>
+               <table id="favorite-authors">
+                  <tr>
+                     <th>Name</th>
+                     <th>Genre</th>
+                  </tr>
+                  <tr>
+                     <td id=”txtStephenKingName”></td>
+                     <td id=txtHorrorGenre></td>
+                  </tr>
+                  <tr>
+                     <td id=”txtGeorgeMartinName”></td>
+                     <td id=txtFantasyGenre></td>
+                  </tr>
+                  <tr>
+                     <td id=”txtKurtVonnegutName”></td>
+                     <td id=txtFictionGenre></td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+
+         <script >
+            //Tables are hidden at page load
+            let books = document.getElementById('favorite-books');
+            let authors = document.getElementById('favorite-authors');
+            
+            //Starts when page is loaded.
+            window.addEventListener('load', (event) => {
+                //Assigning values into objects.    
+                const book1 = {
+                    isbn: "0385199570",
+                    title: "The Stand",
+                    pages: 1152
+                };
+                const book2 = {
+                    isbn: "9781451673319",
+                    title: "Fahrenheit 451",
+                    pages: 249
+                };
+                const book3 = {
+                    isbn: "0808514571",
+                    title: "Slaughterhouse-Five",
+                    pages: 224
+                };
+
+                //Mapping tables at page load
+                document.getElementById('”txtTheStandISBN”').innerHTML = book1.isbn;
+                document.getElementById('”txtTheStandTitle”').innerHTML = book1.title;
+                document.getElementById('”txtTheStandPages”').innerHTML = book1.pages;
+            
+                document.getElementById('”txtFahrenheit451ISBN”').innerHTML = book2.isbn;
+                document.getElementById('”txtFahrenheit451Title”').innerHTML = book2.title;
+                document.getElementById('”txtFahrenheit451Pages”').innerHTML = book2.pages;
+            
+                document.getElementById('”txtSlaughterhouseFiveISBN”').innerHTML = book3.isbn;
+                document.getElementById('”txtSlaughterhouseFiveTitle”').innerHTML = book3.title;
+                document.getElementById('”txtSlaughterhouseFivePages”').innerHTML = book3.pages;  
+
+                //Assigning values into objects.             
+                const author1 = {
+                    name: "Stephen King",
+                    genre: "Horror"
+                };
+                const author2 = {
+                    name: "George Martin",
+                    genre: "Fantasy"
+                };
+                const author3 = {
+                    name: "Kurt Vonnegut",
+                    genre: "Fiction"
+                };           
+                
+                //Mapping tables at page load
+                document.getElementById('”txtStephenKingName”').innerHTML = author1.name;
+                document.getElementById('”txtGeorgeMartinName”').innerHTML = author2.name;
+                document.getElementById('”txtKurtVonnegutName”').innerHTML = author3.name;
+            
+                document.getElementById('txtHorrorGenre').innerHTML = author1.genre;
+                document.getElementById('txtFantasyGenre').innerHTML = author2.genre;
+                document.getElementById('txtFictionGenre').innerHTML = author3.genre;
+            
+                document.getElementById("book-table").style.display = "none";
+                document.getElementById("author-table").style.display = "none";
+            });
+            
+            //Button click function
+            function displayListing() {
+            
+                let choice = document.getElementById('favoriteList').value;
+            
+                //If Books is selected from list.
+                if (choice === "books") {
+                    document.getElementById("author-table").style.display = "none";
+                    document.getElementById("book-table").style.display = "block";
+                //If Authors is selected from list.
+                } else if (choice === 'authors') {
+                    document.getElementById("author-table").style.display = "block";
+                    document.getElementById("book-table").style.display = "none";
+                //If Select is selected from list. 
+                } else if (choice === 'select') {
+                    document.getElementById("book-table").style.display = "none";
+                    document.getElementById("author-table").style.display = "none";
+                }
+            } 
+         </script> 
+      </body>
+   </html>
