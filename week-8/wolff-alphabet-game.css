@@ -1,0 +1,17 @@
+/*
+  Title: wolff-alphabet-game.css
+  Author: Patrick Wolff
+  Date: 08 May 2022
+  Description: CSS Styling for the Alphabet Game assignment 8
+*/
+
+/* Initially hide the results container */
+#results-container {
+display: none;
+
+}
+
+.card-content {
+  font-size: 28px;
+  text-align: center;
+}

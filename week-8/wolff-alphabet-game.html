@@ -1,0 +1,97 @@
+<!--
+! =====================================================
+! Title: wolff-alphabet-game.html
+! Author: Professor Krasso
+! Date: 08 May 2022
+! Modified By: Patrick Wolff
+! Description: Alphabet game, enter number to see what 
+! letter is at that number position.
+! =====================================================
+-->
+
+<!DOCTYPE html>
+<html lang='en'>
+   <head>
+     <meta charset="UTF-8">
+     <title>WEB 231 - Enterprise JavaScript I</title>
+     <link href="../global.css" type="text/css" rel="stylesheet" />
+     <link href="wolff-alphabet-game.css" type="text/css" rel="stylesheet"/>
+     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+   </head>
+
+   <body>
+    <div id="container">
+       <h1 class="app-header">Welcome to the Alphabet Game!</h1>
+       <div class="card">
+          <div class="card-title">Alphabet Number Form</div>
+          <div class="form">
+             <div class="form-field">
+                <label>Alphabet Letter Position</label>
+                <input type="text" id="txtPosition" class="input">                  
+            </div>
+             <div class="form-field">
+                <button id="btnFindLetter" class="btn btn-primary full-width" onclick="findLetter()">Find Letter</button>
+             </div>
+          </div>
+          <br>
+          <!-- Link back to landing page. -->
+          <a class="return-home" href="https://justpat81.github.io/web-231/">Return</a>  
+       </div>
+       <br>
+       <!--Alphabet Container-->
+       <div id="alphabet-container">
+          <div class="card">
+             <div class="card-title">Letters in the Alphabet</div>
+             <div class="card-content" id="alphabet"></div>
+          </div>
+       </div>
+       <!--Card to display results-->
+       <div id="results-container">
+          <div class="card">
+             <div class="card-title">Results</div>
+             <div class="card-content" id="alphabet-results"></div>
+          </div>
+          <br>
+       </div>
+    </div>
+
+<script>
+ //Array that includes all letters, A-Z
+ const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
+    'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+ ];
+
+ //Empty string for loop.
+ let alphabetOutput = "";
+
+ //Builds a string of letters by iterating over the array.
+ for (i in alphabet) {
+     alphabetOutput += alphabet[i] + ', ';
+ }
+
+ //Remove trailing spaces/commas and binding the string to the div.
+ document.getElementById('alphabet').innerHTML = alphabetOutput.slice(0, -2);
+
+ //Runs when the Find Letter button is clicked.
+ function findLetter() {
+
+     //Takes entered value and binds it to variable named pos.
+     let pos = document.getElementById('txtPosition').value;
+
+     //Starts the array at 1 instead of 0.
+     let letter = alphabet[pos - 1]; 
+
+     //If the input field is undefined, display message/container.
+     if (letter === undefined) {
+         document.getElementById('results-container').style.display = "block";
+         document.getElementById('alphabet-results').innerHTML = `There are not ${pos} letters in the alphabet`;
+     } else {
+         //If the number input is less than 27 but not 0, display message/container.
+         document.getElementById('results-container').style.display = "block";
+         document.getElementById('alphabet-results').innerHTML = `${letter} is at position ${pos} in the alphabet`;
+     }
+ }
+</script>
+</body>
+
+</html>
